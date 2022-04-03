@@ -1,0 +1,12 @@
+@charset"uft-8";
+
+.main-table{
+ border-collapse : collapse;
+ border : 2px #000000 solid;
+}
+
+td {
+ width : 30px;
+ height : 30px;
+ border :2px #000000 solid;
+}
