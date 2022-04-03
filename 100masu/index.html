@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+  <meta charaset="utf8"/>
+  <title>100マス計算</title>
+  <script type="text/javascript">
+<!--
+
+function random(){
+  arrayA=[0,1,2,3,4,5,6,7,8,9];
+  console.log(arrayA);
+  for(var i=0;i<=9;i++){
+    var random = Math.floor(Math.random()*(10-i))+1;
+    console.log(random);
+    var t=arrayA[random];
+    arrayA[random]=arrayA[i];
+    arrayA[i]=t;
+    console.log(arrayA);
+  }
+  return 0;
+}
+
+function addMainTable () {
+let N=11;
+  let mainTable = document.getElementById('main-table');
+  var table = document.createElement('table');
+  table.className='main-table';
+  for ( var i=0; i<N; i++ ) {
+    var row = document.createElement('tr');
+    for ( var j=0; j<N; j++ ) {
+      var cell = document.createElement('td');
+      cell.id = 'cell' + i + "-" + j;
+      cell.innerHTML="　";
+      row.appendChild(cell);
+    }
+    table.appendChild(row);
+  }
+  mainTable.appendChild(table);
+
+  random();
+  for ( var m=1; m<N; m++ ){
+    document.getElementById("cell0"+"-"+m).innerHTML=arrayA[m-1];
+  }
+  random();
+  for ( var n=1; n<N; n++ ){
+    console.log(m);
+    document.getElementById("cell"+n+"-0").innerHTML=arrayA[n-1];
+  }
+  
+  return 0;
+}
+
+function solve(){
+  N=11;
+  for(var p=1;p<N;p++){
+    let A=document.getElementById("cell"+p+"-0").innerHTML;
+    console.log(A);
+    for (var n=1;n<N;n++){
+      let B=document.getElementById("cell0"+"-"+n).innerHTML;
+      document.getElementById("cell"+p+"-"+n).innerHTML=A*B;
+    }
+  }
+}
+
+ </script>
+</head>
+<input type="button" value="問題作成・ｗ・" onClick="addMainTable()"/></br>
+<input type="button" value="解答表示・ｗ・" onClick="solve()"/></br>
+
+<div id="main-table">
+<link rel="stylesheet" href="./main.css">
+
+</div>
+</html>
+
